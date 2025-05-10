@@ -47,8 +47,6 @@
 git clone https://github.com/your-repo/algebraic.git
 
 cd algebraic
-
-pip install .
 ```
 
 ## 快速开始
@@ -56,23 +54,23 @@ pip install .
 
 
 ```
-from MathExpression import \*
+from MathExpression import *
 
-\# 创建变量
+# 创建变量
 
 x, y = Variable("x"), Variable("y")
 
-\# 构建表达式
+# 构建表达式
 
-expr = 2\*x + y\*\*2 - 3
+expr = 2*x + y**2 - 3
 
-\# 表达式求值
+# 表达式求值
 
 print(expr.evaluate(x=1, y=2))  # 输出: 3.0
 
-\# 自动求导
+# 自动求导
 
-print(expr.derivative("x").to\_str())  # 输出: 2
+print(expr.derivative("x").to_str())  # 输出: 2
 ```
 
 ## 核心模块
@@ -82,13 +80,13 @@ print(expr.derivative("x").to\_str())  # 输出: 2
 
 
 ```
-\# 创建变量和常量
+# 创建变量和常量
 
 x = Variable("x")
 
 c = Constant(3.14)
 
-print(x.to\_str())  # 输出: x
+print(x.to_str())  # 输出: x
 
 print(c.evaluate())  # 输出: 3.14
 ```
@@ -98,17 +96,17 @@ print(c.evaluate())  # 输出: 3.14
 
 
 ```
-\# 四则运算
+# 四则运算
 
-expr = (x + 1) \* (x - 2)
+expr = (x + 1) * (x - 2)
 
-print(expr.to\_str())  # 输出: (x + 1)\*(x - 2)
+print(expr.to_str())  # 输出: (x + 1)*(x - 2)
 
-\# 幂运算
+# 幂运算
 
-power = x \*\* 3
+power = x ** 3
 
-print(power.derivative("x").to\_str())  # 输出: 3\*x^2
+print(power.derivative("x").to_str())  # 输出: 3*x^2
 ```
 
 ### 函数
@@ -116,17 +114,17 @@ print(power.derivative("x").to\_str())  # 输出: 3\*x^2
 
 
 ```
-\# 三角函数
+# 三角函数
 
-trig = Sin(x) + Cos(2\*x)
+trig = Sin(x) + Cos(2*x)
 
-print(trig.to\_str())  # 输出: sin(x) + cos(2\*x)
+print(trig.to_str())  # 输出: sin(x) + cos(2*x)
 
-\# 对数函数
+# 对数函数
 
-log\_expr = Ln(x + 1)
+log_expr = Ln(x + 1)
 
-print(log\_expr.derivative("x").to\_str())  # 输出: 1/(x + 1)
+print(log_expr.derivative("x").to_str())  # 输出: 1/(x + 1)
 ```
 
 ### 因式分解
@@ -134,13 +132,13 @@ print(log\_expr.derivative("x").to\_str())  # 输出: 1/(x + 1)
 
 
 ```
-\# 二次多项式分解
+# 二次多项式分解
 
-expr = x\*\*2 + 3\*x + 2
+expr = x**2 + 3*x + 2
 
 factors = expr.factor()
 
-print(" \* ".join(f.to\_str() for f in factors))  # 输出: (x + 1) \* (x + 2)
+print(" * ".join(f.to_str() for f in factors))  # 输出: (x + 1) * (x + 2)
 ```
 
 ### 方程求解
@@ -148,13 +146,13 @@ print(" \* ".join(f.to\_str() for f in factors))  # 输出: (x + 1) \* (x + 2)
 
 
 ```
-\# 线性方程组
+# 线性方程组
 
-eq1 = 2\*x + 3\*y - 6
+eq1 = 2*x + 3*y - 6
 
 eq2 = x - y + 2
 
-solution = EquationSolver.solve\_system(eq1, eq2, variables=\["x", "y"])
+solution = EquationSolver.solve_system(eq1, eq2, variables=["x", "y"])
 
 print(solution)  # 输出: x = 0.0, y = 2.0
 ```
@@ -198,15 +196,11 @@ LaTeX 输出支持
 
 
 ```
-&#x20;     \+
-
-&#x20;    / \\
-
-&#x20;   \*   y
-
-&#x20;  / \\
-
-&#x20; x   2
+      +
+     / \
+    *   ^
+   / \ / \
+  2  x y 3
 ```
 
 ### 自动微分
@@ -238,5 +232,3 @@ LaTeX 输出支持
 新功能需包含单元测试
 
 文档需同步更新
-
-这个 Markdown 文件已修正了代码块格式问题，确保所有代码示例都被正确地包含在 \`\`\` 标记中。目录链接也被格式化为正确的 Markdown 链接格式。
